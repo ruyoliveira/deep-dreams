@@ -36,6 +36,7 @@ public class CardSO : ScriptableObject
     /// Resumed card description
     /// </summary>
     public string description;
+  
 
 
     
