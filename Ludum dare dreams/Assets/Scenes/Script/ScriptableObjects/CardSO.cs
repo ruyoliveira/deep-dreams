@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Enum related to card types
 /// </summary>
-public enum CardType {Attack, Support, Special};
+public enum CardType {Attack, Defense, Support };
 
 /// <summary>
 /// Object container for card related information
