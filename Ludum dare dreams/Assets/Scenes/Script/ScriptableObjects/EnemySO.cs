@@ -23,5 +23,9 @@ public class EnemySO : ScriptableObject
     /// Identifies if normal or boss enemy
     /// </summary>
     public EnemyType enemyType;
+    /// <summary>
+    /// Health points 
+    /// </summary>
+    public int healthPoints;
 
 }
