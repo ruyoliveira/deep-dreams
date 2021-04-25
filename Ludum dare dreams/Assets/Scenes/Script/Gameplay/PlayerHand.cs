@@ -6,12 +6,14 @@ public class PlayerHand : MonoBehaviour
 {
     public CardSpawner cardSpawner;
     public CardSO drawnCard;
+    public CardSO[] cardsInHand;
     // Start is called before the first frame update
     void Start()
     {
-        BeginTurn();
-        BeginTurn();
-        BeginTurn();
+        foreach(CardSO card in cardsInHand)
+        {
+            cardSpawner.SpawnCard(card, this.transform);
+        }
 
     }
 
