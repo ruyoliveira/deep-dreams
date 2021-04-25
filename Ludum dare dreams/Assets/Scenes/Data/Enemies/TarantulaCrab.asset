@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eb1bcc58680de8408b9b9a4f41250a1, type: 3}
-  m_Name: Jelly
+  m_Name: TarantulaCrab
   m_EditorClassIdentifier: 
   enemyName: 
   cards:
   - {fileID: 11400000, guid: 6750b05217c8ec74e9c1b581cd00433a, type: 2}
-  - {fileID: 11400000, guid: 6750b05217c8ec74e9c1b581cd00433a, type: 2}
   - {fileID: 11400000, guid: e0e939dded90b0948a15da3daafc5c45, type: 2}
-  graphic: {fileID: 21300000, guid: 912448bf4388d724e94164a51f8c384f, type: 3}
+  - {fileID: 11400000, guid: e0e939dded90b0948a15da3daafc5c45, type: 2}
+  graphic: {fileID: 0}
   description: 
   enemyType: 0
-  healthPoints: 5
+  healthPoints: 8
