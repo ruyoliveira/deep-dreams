@@ -20,4 +20,16 @@ public class GamePhasesManager : MonoBehaviour
     {
          phase = phase != GamePhases.END_TURN? phase+1: GamePhases.BEGIN_TURN;
     }
+    public void BeginTurnPhase()
+    {
+
+    }
+    public void PlanningPhase()
+    {
+
+    }
+    public void ResolveBattlePhase()
+    {
+
+    }
 }
