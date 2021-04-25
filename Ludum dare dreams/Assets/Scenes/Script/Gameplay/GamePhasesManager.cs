@@ -9,6 +9,7 @@ public class GamePhasesManager : MonoBehaviour
 {
     public GamePhases currentPhase;
     public Player player;
+    public Judge battleJudge;
 
     public CardSO playerSelectedCard;
     public CardSO enemySelectedCard;
@@ -24,15 +25,19 @@ public class GamePhasesManager : MonoBehaviour
         switch(currentPhase)
         {
             case GamePhases.BEGIN_TURN:
+                Debug.Log("BEGIN_TURN");
                 BeginTurnPhase();
                 break;
             case GamePhases.PLANNING:
+                Debug.Log("PLANNING");
                 PlanningPhase();
                 break;
             case GamePhases.RESOLVE_BATTLE:
+                Debug.Log("RESOLVE_BATTLE");
                 ResolveBattlePhase();
                 break;
             case GamePhases.END_TURN:
+                Debug.Log("END_TURN");
                 EndTurnPhase();
                 break;
 
@@ -60,6 +65,7 @@ public class GamePhasesManager : MonoBehaviour
     {
         if(playerSelectedCard!= null && enemySelectedCard != null)
         {
+           
             NextPhase();
         }
     }
@@ -68,6 +74,10 @@ public class GamePhasesManager : MonoBehaviour
     /// </summary>
     public void ResolveBattlePhase()
     {
+        // todo: move cards to battle area
+        Vector4 battleResult = battleJudge.ResolveBattle(playerSelectedCard,enemySelectedCard);
+        Debug.Log(battleResult);
+        NextPhase();
 
     }
     /// <summary>
@@ -75,8 +85,11 @@ public class GamePhasesManager : MonoBehaviour
     /// </summary>
     public void EndTurnPhase()
     {
+        // todo: discard cards
         playerSelectedCard = null;
         enemySelectedCard = null;
         NextPhase();
     }
+
+    
 }

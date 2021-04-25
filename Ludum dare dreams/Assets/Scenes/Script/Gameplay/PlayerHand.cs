@@ -23,7 +23,9 @@ public class PlayerHand : MonoBehaviour
     {
         
     }
-
+    /// <summary>
+    /// Draws a new card, spawn and update the HUD to put it in the players hand
+    /// </summary>
     public void DrawCard()
     {
         cardSpawner.SpawnCard(this.drawnCard,this.transform);
