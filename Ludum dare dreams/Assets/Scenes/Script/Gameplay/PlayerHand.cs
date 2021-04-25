@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHand : MonoBehaviour
 {
+   
     public CardSpawner cardSpawner;
     public CardSO drawnCard;
     public CardSO[] cardsInHand;
@@ -23,7 +24,7 @@ public class PlayerHand : MonoBehaviour
         
     }
 
-    public void BeginTurn()
+    public void DrawCard()
     {
         cardSpawner.SpawnCard(this.drawnCard,this.transform);
     }

@@ -5,9 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerHand hand;
-    public Judge battleJudge;
+    public int energy;
+
     public void Start()
     {
-        Debug.Log(battleJudge.ResolveBattle(hand.cardsInHand[0], hand.cardsInHand[1]));
+       
     }
 }
