@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: 
   type: 0
   graphic: {fileID: 0}
-  cost: 0
-  value: 0
+  cost: 4
+  value: 3
   description: 
-  rarity: 0
+  rarity: 2
