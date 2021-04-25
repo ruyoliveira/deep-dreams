@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PlayerHand : MonoBehaviour
 {
-   
+    public CardSO[] cardDeck;
     public CardSpawner cardSpawner;
     public CardSO drawnCard;
-    public CardSO[] cardsInHand;
+    public List<CardSO> cardsInHand;
     // Start is called before the first frame update
     void Start()
     {
-        foreach(CardSO card in cardsInHand)
-        {
-            cardSpawner.SpawnCard(card, this.transform);
-        }
+        
+        //foreach(CardSO card in cardsInHand)
+        //{
+        //    cardSpawner.SpawnCard(card, this.transform);
+        //}
 
     }
 
@@ -28,6 +29,8 @@ public class PlayerHand : MonoBehaviour
     /// </summary>
     public void DrawCard()
     {
+        drawnCard = cardDeck[Random.Range(0,cardDeck.Length)];
+        cardsInHand.Add(drawnCard);
         cardSpawner.SpawnCard(this.drawnCard,this.transform);
     }
 }

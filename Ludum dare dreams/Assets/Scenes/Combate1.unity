@@ -134,8 +134,9 @@ GameObject:
   - component: {fileID: 7444479}
   - component: {fileID: 7444481}
   - component: {fileID: 7444480}
+  - component: {fileID: 7444482}
   m_Layer: 5
-  m_Name: Enemy
+  m_Name: EnemySpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,8 +152,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 327650643}
+  m_Children: []
   m_Father: {fileID: 839590009}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -199,6 +199,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7444478}
   m_CullTransparentMesh: 1
+--- !u!114 &7444482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c820f6583e71c409fd003bc91903be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 1657143440702634735, guid: e5934b07c3071a94b8c76f07c74eb1a9, type: 3}
+  enemyObj: {fileID: 0}
+  spawnedEnemyGameObject: {fileID: 0}
 --- !u!1 &145184507
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,81 +257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa086779fb38ff946baa1640e5466acd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &327650642
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 327650643}
-  - component: {fileID: 327650645}
-  - component: {fileID: 327650644}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &327650643
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 327650642}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7444479}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 205.6698, y: 205.6698}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &327650644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 327650642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 912448bf4388d724e94164a51f8c384f, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &327650645
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 327650642}
-  m_CullTransparentMesh: 1
 --- !u!1 &369540187
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,7 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 1797128345}
-  battleJudge: {fileID: 145184509}
+  energy: 0
 --- !u!1 &1375920424
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,6 +908,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d92a29b7982374e8f5c4921ca1201c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardDeck:
+  - {fileID: 11400000, guid: 01292de2bddd0014292d42dfdf7695bf, type: 2}
+  - {fileID: 11400000, guid: b326a5304900dd44abc80cbe89b89e16, type: 2}
+  - {fileID: 11400000, guid: cf1073723bb6de546ad4e99ba571c028, type: 2}
+  - {fileID: 11400000, guid: 0a5f92eec23412a47a2351907c446af0, type: 2}
+  - {fileID: 11400000, guid: 79d87a80158550941be390c2b7bc4a30, type: 2}
+  - {fileID: 11400000, guid: f2147a37e0d69364cbf2abe86b14757a, type: 2}
   cardSpawner: {fileID: 1797128346}
   drawnCard: {fileID: 11400000, guid: b326a5304900dd44abc80cbe89b89e16, type: 2}
   cardsInHand:
@@ -987,6 +934,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 1547099785}
+--- !u!1 &1804501160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1804501161}
+  - component: {fileID: 1804501162}
+  m_Layer: 0
+  m_Name: DungeonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1804501161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804501160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 619.69836, y: 150.90173, z: -132.64362}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1804501162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804501160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7575b5180d75b5b48a844a69a29afb1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesData:
+  - {fileID: 11400000, guid: 61bfd1b8a08771c428638a199d1f00a4, type: 2}
+  currentEnemy: {fileID: 0}
+  enemySpawner: {fileID: 7444482}
 --- !u!1 &1816528585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1099,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec7418909d0221949bf30afd0fa4316d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase: 0
+  currentPhase: 0
+  player: {fileID: 1319847451}
+  battleJudge: {fileID: 145184509}
+  playerSelectedCard: {fileID: 11400000, guid: 01292de2bddd0014292d42dfdf7695bf, type: 2}
+  enemySelectedCard: {fileID: 11400000, guid: 6750b05217c8ec74e9c1b581cd00433a, type: 2}
 --- !u!1001 &7295617607583136406
 PrefabInstance:
   m_ObjectHideFlags: 0

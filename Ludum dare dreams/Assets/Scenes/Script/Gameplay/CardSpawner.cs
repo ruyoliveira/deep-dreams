@@ -18,7 +18,7 @@ public class CardSpawner : MonoBehaviour
     public void SpawnCard(CardSO card, Transform hand)
     {
         GameObject instantiatedCard = Instantiate(cardPrefab, hand);
-        Card cardObj = instantiatedCard.GetComponent<Card>();
+        CardGUI cardObj = instantiatedCard.GetComponent<CardGUI>();
         cardObj.Setup(card);
 
 

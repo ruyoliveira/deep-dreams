@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Card : MonoBehaviour
+public class CardGUI : MonoBehaviour
 {
     /// <summary>
     /// Array of sprites of the card mold organized in order Attack, Defense and Support
