@@ -16,6 +16,7 @@ public class Card : MonoBehaviour
     public Text cardName;
     public Text value;
     public Text cost;
+    public Text rarity;
 
 
     public void Setup(CardSO cardData)
@@ -26,7 +27,9 @@ public class Card : MonoBehaviour
         cardName.text = cardData.name;
         value.text = cardData.value.ToString();
         cost.text = cardData.cost.ToString();
-        switch(cardData.type)
+        //rarity.text = cardData.rarity.ToString();
+
+        switch (cardData.type)
         {
             case CardType.Attack:
                 cardMold.sprite = cardColoredMold[0];

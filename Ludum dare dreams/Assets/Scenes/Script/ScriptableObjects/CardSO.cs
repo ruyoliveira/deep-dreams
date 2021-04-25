@@ -5,6 +5,7 @@ using UnityEngine;
 /// Enum related to card types
 /// </summary>
 public enum CardType {Attack, Defense, Support };
+public enum CardRarity { Normal, Refined, Unique, Elite, Super};
 
 /// <summary>
 /// Object container for card related information
@@ -36,8 +37,12 @@ public class CardSO : ScriptableObject
     /// Resumed card description
     /// </summary>
     public string description;
-  
+    /// <summary>
+    /// Card rarity group
+    /// </summary>
+    public CardRarity rarity;
 
 
-    
+
+
 }
