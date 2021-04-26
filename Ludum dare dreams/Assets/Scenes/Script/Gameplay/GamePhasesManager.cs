@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public enum GamePhases {BEGIN_TURN, PLANNING, RESOLVE_BATTLE, END_TURN}
 /// <summary>
 /// Manages the game actions and transition between phases
@@ -19,7 +20,7 @@ public class GamePhasesManager : MonoBehaviour
     
     void Start()
     {
-        
+        GameSetup();
     }
 
     // Update is called once per frame
@@ -43,7 +44,7 @@ public class GamePhasesManager : MonoBehaviour
                 //Debug.Log("END_TURN");
                 EndTurnPhase();
                 break;
-
+            
         }
     }
     /// <summary>
@@ -53,6 +54,17 @@ public class GamePhasesManager : MonoBehaviour
     {
          currentPhase = currentPhase != GamePhases.END_TURN? currentPhase+1: GamePhases.BEGIN_TURN;
     }
+    /// <summary>
+    /// Game setup
+    /// </summary>
+    public void GameSetup()
+    {
+        // Player draws three cards
+        player.hand.DrawCard();
+        player.hand.DrawCard();
+        enemyManager.NextEnemy();
+    }
+
     /// <summary>
     /// Actions in the begin turn phase. Draws card and transition to PlanningPhase;
     /// </summary>
@@ -70,9 +82,10 @@ public class GamePhasesManager : MonoBehaviour
     /// </summary>
     public void PlanningPhase()
     {
-        if(player.hand.selectedCard!= null && enemySelectedCard != null)
+        if(player.hand.selectedCard!= null)
         {
-            playerSelectedCard = player.hand.selectedCard;
+            enemySelectedCard = enemyManager.currentEnemy.UseCurrentCard();
+            playerSelectedCard = player.hand.UseCurrentCard();
             NextPhase();
         }
     }
@@ -81,9 +94,11 @@ public class GamePhasesManager : MonoBehaviour
     /// </summary>
     public void ResolveBattlePhase()
     {
+
         // todo: move cards to battle area
-        Vector4 battleResult = battleJudge.ResolveBattle(playerSelectedCard,enemySelectedCard);
-        Debug.Log(battleResult);
+        int[] battleResult = battleJudge.ResolveBattle(playerSelectedCard,enemySelectedCard);
+      
+        Debug.Log(battleResult[0].ToString() + battleResult[1].ToString() + battleResult[2].ToString() + battleResult[3].ToString());
         ProcessBattleResult(battleResult); 
         NextPhase();
 
@@ -103,10 +118,10 @@ public class GamePhasesManager : MonoBehaviour
     /// Aapplies damage and recovery for enemy and player and notificates both managers in case of defeat
     /// </summary>
     /// <param name="battleResult"></param>
-    public void ProcessBattleResult(Vector4 battleResult)
+    public void ProcessBattleResult(int[] battleResult)
     {
-        player.hp +=  (int)battleResult.x;  // applies damage to player
-        enemyManager.currentEnemy.currentHealthPoints += (int)battleResult.y;   // apples damage to player
+        player.AddDamage(battleResult[0]);  // applies damage to player
+        enemyManager.currentEnemy.AddHP( battleResult[1]);   // apples damage to player
         if(player.hp <=0)
         {
             // todo game over
@@ -121,8 +136,8 @@ public class GamePhasesManager : MonoBehaviour
         else 
         {
             
-            player.hp += (int)battleResult.z; // Recover HP after  damage is applied and if both survived
-            enemyManager.currentEnemy.currentHealthPoints += (int)battleResult.w;
+            player.hp += battleResult[2]; // Recover HP after  damage is applied and if both survived
+            enemyManager.currentEnemy.AddHP(battleResult[3]);
         }
         Debug.Log("After Battle - Player HP: " + player.hp);
         Debug.Log("After Battle - Enemy HP: " + enemyManager.currentEnemy.currentHealthPoints);

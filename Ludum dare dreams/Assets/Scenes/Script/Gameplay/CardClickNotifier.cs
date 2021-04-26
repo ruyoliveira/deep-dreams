@@ -33,6 +33,6 @@ public class CardClickNotifier : MonoBehaviour
     /// <param name="cardId"></param>
     public void NotifyClickPlayerHand()
     {
-        parentPlayerHand.PickCard(this.cardId);
+        parentPlayerHand.PickCard(this.GetComponent<CardGUI>());
     }
 }

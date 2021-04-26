@@ -13,13 +13,13 @@ public class CardSpawner : MonoBehaviour
     /// <summary>
     /// Spawns card on an empty slot in the hand
     /// </summary>
-    /// <param name="card">card data</param>
+    /// <param name="cardSO">card data</param>
     /// <param name="hand"> player hand reference</param>
-    public GameObject SpawnCard(CardSO card, Transform hand)
+    public GameObject SpawnCard(CardSO cardSO, Transform hand)
     {
         GameObject instantiatedCard = Instantiate(cardPrefab, hand);
         CardGUI cardObj = instantiatedCard.GetComponent<CardGUI>();
-        cardObj.Setup(card);
+        cardObj.Setup(cardSO);
         return instantiatedCard;
 
 

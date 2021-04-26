@@ -12,7 +12,7 @@ public class EnemyManager : MonoBehaviour
     {
         //enemySpawner.SpawnEnemy(enemiesData[0], enemySpawner.transform);
         currentEnemyOrder = 0;
-        NextEnemy();
+        //NextEnemy();
 
     }
     public void Update()
@@ -22,7 +22,8 @@ public class EnemyManager : MonoBehaviour
     
     public void NextEnemy()
     {
-   
+        if(currentEnemy)
+            Destroy(currentEnemy.gameObject);
         enemySpawner.SpawnEnemy(enemiesData[currentEnemyOrder++], enemySpawner.transform);
         currentEnemy = enemySpawner.enemyObj;
     }

@@ -8,7 +8,7 @@ public class PlayerHand : MonoBehaviour
     public CardSpawner cardSpawner;
     public CardSO drawnCard;
     public CardSO selectedCard;
-    public List<CardSO> cardsInHand;
+    public int selectedCardId;
     public List<GameObject> cardsInHandObj;
     // Start is called before the first frame update
     void Start()
@@ -32,26 +32,39 @@ public class PlayerHand : MonoBehaviour
     public void DrawCard()
     {
         drawnCard = cardDeck[Random.Range(0,cardDeck.Length)];
-        cardsInHand.Add(drawnCard);
         GameObject spawnedCard = cardSpawner.SpawnCard(this.drawnCard, this.transform);
         spawnedCard.GetComponent<CardClickNotifier>().SetCardID(cardsInHandObj.Count, this); // setup click notifier of instantiated card
         cardsInHandObj.Add(spawnedCard);
         
     }
 
-    public void PickCard(int id)
+    public void PickCard(CardGUI cardGUI)
     {
-        Debug.Log("PickedCard");
-        selectedCard = cardsInHand[id];
-        DiscardUsedCard(id);
+        Debug.Log("Player SelectedCard:" + cardGUI.cardData.cardName);
+        selectedCard = cardGUI.cardData;//cardsInHandObj[id].GetComponent<CardGUI>().cardData;
+        Discard2(cardGUI.gameObject);
+        //selectedCardId = cardsInHandObj.Find(cardGUI.gameObject);
+
+ 
+    }
+    public void Discard2(GameObject obj)
+    {
+        cardsInHandObj.Remove(obj);
+        Destroy(obj);
     }
     public void DiscardUsedCard(int id)
     {
-        cardsInHand.RemoveAt(id);
-        
-        GameObject obj = cardsInHandObj[id];
-        cardsInHandObj.RemoveAt(id);
-        Destroy(obj);
 
+        //GameObject obj = cardsInHandObj[id];
+        //cardsInHandObj.RemoveAt(id);
+        //Destroy(obj);
+
+    }
+    public CardSO UseCurrentCard()
+    {
+        CardSO usedCard = this.selectedCard;
+        //DiscardUsedCard(this.selectedCardId);
+        this.selectedCard = null;
+        return usedCard;
     }
 }

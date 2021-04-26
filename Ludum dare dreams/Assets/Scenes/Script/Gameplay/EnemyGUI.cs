@@ -25,7 +25,6 @@ public class EnemyGUI : MonoBehaviour
         healthPoints.text = enemyData.healthPoints.ToString();
         //rarity.text = cardData.rarity.ToString();
 
-       
-
     }
+   
 }

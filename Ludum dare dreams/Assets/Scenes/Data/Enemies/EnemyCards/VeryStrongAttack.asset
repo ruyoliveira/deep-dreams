@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5434d2d63228ccc44be6e28f2770d980, type: 3}
   m_Name: VeryStrongAttack
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: VeryStrong
   type: 0
   graphic: {fileID: 0}
   cost: 0

@@ -34,10 +34,17 @@ public class Enemy: MonoBehaviour
     /// </summary>
     public int currentHealthPoints;
     /// <summary>
+    /// Current card following enemy deck
+    /// </summary>
+    public int currentCardId;
+    /// <summary>
+    /// Current card data
+    /// </summary>
+    public CardSO currentCardData;
+    /// <summary>
     /// Reference for enemy GUI
     /// </summary>
     public EnemyGUI enemyGUI;
-
     /// <summary>
     /// Enemy data
     /// </summary>
@@ -53,8 +60,29 @@ public class Enemy: MonoBehaviour
         this.enemyType = enemyData.enemyType;
         this.healthPoints = enemyData.healthPoints;
         this.currentHealthPoints = enemyData.healthPoints;
-
+        this.currentCardId = 0;
+        this.currentCardData = cards[this.currentCardId];
+    }
+    public void NextCard()
+    {
+        this.currentCardId = this.currentCardId < cards.Length-1 ? ++currentCardId: 0;
+        this.currentCardData = cards[this.currentCardId];
+    }
+    public CardSO UseCurrentCard()
+    {
+        CardSO usedCard = this.currentCardData;
+        NextCard();
+        return usedCard;
     }
 
-   
+    public void RefreshGUI()
+    {
+        enemyGUI.healthPoints.text = currentHealthPoints.ToString();
+    }
+    public void AddHP(int damage)
+    {
+        currentHealthPoints += damage;
+        RefreshGUI();
+    }
+
 }
