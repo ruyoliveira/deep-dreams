@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5434d2d63228ccc44be6e28f2770d980, type: 3}
-  m_Name: WaterGun
+  m_Name: Chocolate
   m_EditorClassIdentifier: 
-  cardName: Water Gun
-  type: 0
-  graphic: {fileID: 21300000, guid: a045e0b8c994d5c4b8ae1ada54855df3, type: 3}
-  cost: 8
-  value: 5
-  description: Shots a water stream that causes damage to the enemy
-  rarity: 4
+  cardName: Chocolate
+  type: 2
+  graphic: {fileID: 21300000, guid: f547b6b55d22f054786525d0b255209c, type: 3}
+  cost: 4
+  value: 3
+  description: 
+  rarity: 2

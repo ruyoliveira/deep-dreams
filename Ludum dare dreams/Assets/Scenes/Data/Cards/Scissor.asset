@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5434d2d63228ccc44be6e28f2770d980, type: 3}
   m_Name: Scissor
   m_EditorClassIdentifier: 
-  cardName: Scissors
+  cardName: Scissor
   type: 0
   graphic: {fileID: 21300000, guid: f00fda3baae2d4641b8047847ff63d73, type: 3}
   cost: 2
