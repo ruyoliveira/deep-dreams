@@ -17,5 +17,5 @@ MonoBehaviour:
   graphic: {fileID: 21300000, guid: f00fda3baae2d4641b8047847ff63d73, type: 3}
   cost: 2
   value: 2
-  description: 
+  description: Scissor help you cut things!
   rarity: 1

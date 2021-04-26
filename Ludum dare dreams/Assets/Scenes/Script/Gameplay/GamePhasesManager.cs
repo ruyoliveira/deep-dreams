@@ -9,11 +9,14 @@ public class GamePhasesManager : MonoBehaviour
 {
     public GamePhases currentPhase;
     public Player player;
+    public EnemyManager enemyManager;
     public Judge battleJudge;
 
     public CardSO playerSelectedCard;
     public CardSO enemySelectedCard;
-    // Start is called before the first frame update
+
+
+    
     void Start()
     {
         
@@ -25,19 +28,19 @@ public class GamePhasesManager : MonoBehaviour
         switch(currentPhase)
         {
             case GamePhases.BEGIN_TURN:
-                Debug.Log("BEGIN_TURN");
+                //Debug.Log("BEGIN_TURN");
                 BeginTurnPhase();
                 break;
             case GamePhases.PLANNING:
-                Debug.Log("PLANNING");
+                //Debug.Log("PLANNING");
                 PlanningPhase();
                 break;
             case GamePhases.RESOLVE_BATTLE:
-                Debug.Log("RESOLVE_BATTLE");
+                //Debug.Log("RESOLVE_BATTLE");
                 ResolveBattlePhase();
                 break;
             case GamePhases.END_TURN:
-                Debug.Log("END_TURN");
+                //Debug.Log("END_TURN");
                 EndTurnPhase();
                 break;
 
@@ -55,17 +58,21 @@ public class GamePhasesManager : MonoBehaviour
     /// </summary>
     public void BeginTurnPhase()
     {
+        Debug.Log("Begin turn - Player HP: " + player.hp);
+        Debug.Log("Begin turn - Enemy HP: " + enemyManager.currentEnemy.currentHealthPoints);
         player.hand.DrawCard();
         NextPhase();
+
+            
     }
     /// <summary>
     /// Player and enemy select desired card to use in resolve battle phase. Wait players select card using game HUD. Enemy picks its card conform its attack order.
     /// </summary>
     public void PlanningPhase()
     {
-        if(playerSelectedCard!= null && enemySelectedCard != null)
+        if(player.hand.selectedCard!= null && enemySelectedCard != null)
         {
-           
+            playerSelectedCard = player.hand.selectedCard;
             NextPhase();
         }
     }
@@ -77,6 +84,7 @@ public class GamePhasesManager : MonoBehaviour
         // todo: move cards to battle area
         Vector4 battleResult = battleJudge.ResolveBattle(playerSelectedCard,enemySelectedCard);
         Debug.Log(battleResult);
+        ProcessBattleResult(battleResult); 
         NextPhase();
 
     }
@@ -91,5 +99,38 @@ public class GamePhasesManager : MonoBehaviour
         NextPhase();
     }
 
-    
+    /// <summary>
+    /// Aapplies damage and recovery for enemy and player and notificates both managers in case of defeat
+    /// </summary>
+    /// <param name="battleResult"></param>
+    public void ProcessBattleResult(Vector4 battleResult)
+    {
+        player.hp +=  (int)battleResult.x;  // applies damage to player
+        enemyManager.currentEnemy.currentHealthPoints += (int)battleResult.y;   // apples damage to player
+        if(player.hp <=0)
+        {
+            // todo game over
+            Debug.Log("GameOver");
+        }
+        else if(enemyManager.currentEnemy.currentHealthPoints <= 0)
+        {
+            Debug.Log("Monster defeated");
+            enemyManager.NextEnemy();   // call next enemy
+            NextPhase();    // continue to next game phase
+        }
+        else 
+        {
+            
+            player.hp += (int)battleResult.z; // Recover HP after  damage is applied and if both survived
+            enemyManager.currentEnemy.currentHealthPoints += (int)battleResult.w;
+        }
+        Debug.Log("After Battle - Player HP: " + player.hp);
+        Debug.Log("After Battle - Enemy HP: " + enemyManager.currentEnemy.currentHealthPoints);
+
+
+
+
+
+    }
+
 }

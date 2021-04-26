@@ -591,7 +591,6 @@ GameObject:
   - component: {fileID: 1319847450}
   - component: {fileID: 1319847449}
   - component: {fileID: 1319847451}
-  - component: {fileID: 1319847452}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
@@ -670,25 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 1797128345}
   energy: 0
---- !u!95 &1319847452
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319847447}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f776a8660265db84b9c7da17d99a8f60, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  hp: 5
 --- !u!1 &1375920424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,7 +985,7 @@ GameObject:
   - component: {fileID: 1804501161}
   - component: {fileID: 1804501162}
   m_Layer: 0
-  m_Name: DungeonManager
+  m_Name: EnemyManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1047,6 +1028,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 95e22d1b0753e4e449718f65b60bae03, type: 2}
   - {fileID: 11400000, guid: 7750cd59c3e0ff443a9c13590fc47b9a, type: 2}
   currentEnemy: {fileID: 0}
+  currentEnemyOrder: 0
   enemySpawner: {fileID: 7444482}
 --- !u!1 &1816528585
 GameObject:
@@ -1168,6 +1150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPhase: 0
   player: {fileID: 1319847451}
+  enemyManager: {fileID: 1804501162}
   battleJudge: {fileID: 145184509}
   playerSelectedCard: {fileID: 11400000, guid: 01292de2bddd0014292d42dfdf7695bf, type: 2}
   enemySelectedCard: {fileID: 11400000, guid: 6750b05217c8ec74e9c1b581cd00433a, type: 2}

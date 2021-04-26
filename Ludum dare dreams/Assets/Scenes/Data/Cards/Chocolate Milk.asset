@@ -17,5 +17,5 @@ MonoBehaviour:
   graphic: {fileID: 21300000, guid: 94685a7f87abc5f428fc263b8244f37d, type: 3}
   cost: 8
   value: 5
-  description: 
+  description: A delicious drink even better when it's hot.
   rarity: 4
