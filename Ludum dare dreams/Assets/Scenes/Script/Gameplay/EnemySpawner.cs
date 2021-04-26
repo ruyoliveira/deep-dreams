@@ -18,8 +18,8 @@ public class EnemySpawner : MonoBehaviour
         spawnedEnemyGameObject = Instantiate(enemyPrefab, enemySpot); // instantiate prefab
         enemyObj = spawnedEnemyGameObject.GetComponent<Enemy>(); // acess enemy runtime object
         enemyObj.LoadEnemy(enemyData); // load enemy data to runtime sobject
-        EnemyGUI enemyGUI = spawnedEnemyGameObject.GetComponent<EnemyGUI>();
-        enemyGUI.Setup(enemyData);
+        enemyObj.enemyGUI = spawnedEnemyGameObject.GetComponent<EnemyGUI>();
+        enemyObj.enemyGUI.Setup(enemyData);
 
 
     }

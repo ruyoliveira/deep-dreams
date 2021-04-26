@@ -18,10 +18,11 @@ public class CardGUI : MonoBehaviour
     public Text cost;
     public Text rarity;
 
+    public CardSO cardSO;
 
     public void Setup(CardSO cardData)
     {
-        
+        this.cardSO = cardData;
         graphic.sprite = cardData.graphic;
         description.text = cardData.description;
         cardName.text = cardData.name;

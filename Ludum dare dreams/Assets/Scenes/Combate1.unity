@@ -669,7 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 1797128345}
   energy: 0
-  hp: 0
+  hp: 5
 --- !u!1 &1375920424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1028,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 95e22d1b0753e4e449718f65b60bae03, type: 2}
   - {fileID: 11400000, guid: 7750cd59c3e0ff443a9c13590fc47b9a, type: 2}
   currentEnemy: {fileID: 0}
+  currentEnemyOrder: 0
   enemySpawner: {fileID: 7444482}
 --- !u!1 &1816528585
 GameObject:
@@ -1149,7 +1150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPhase: 0
   player: {fileID: 1319847451}
-  enemyManager: {fileID: 0}
+  enemyManager: {fileID: 1804501162}
   battleJudge: {fileID: 145184509}
   playerSelectedCard: {fileID: 11400000, guid: 01292de2bddd0014292d42dfdf7695bf, type: 2}
   enemySelectedCard: {fileID: 11400000, guid: 6750b05217c8ec74e9c1b581cd00433a, type: 2}

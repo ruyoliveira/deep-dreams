@@ -7,7 +7,9 @@ public class PlayerHand : MonoBehaviour
     public CardSO[] cardDeck;
     public CardSpawner cardSpawner;
     public CardSO drawnCard;
+    public CardSO selectedCard;
     public List<CardSO> cardsInHand;
+    public List<GameObject> cardsInHandObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,25 @@ public class PlayerHand : MonoBehaviour
     {
         drawnCard = cardDeck[Random.Range(0,cardDeck.Length)];
         cardsInHand.Add(drawnCard);
-        cardSpawner.SpawnCard(this.drawnCard,this.transform);
+        GameObject spawnedCard = cardSpawner.SpawnCard(this.drawnCard, this.transform);
+        spawnedCard.GetComponent<CardClickNotifier>().SetCardID(cardsInHandObj.Count, this); // setup click notifier of instantiated card
+        cardsInHandObj.Add(spawnedCard);
+        
+    }
+
+    public void PickCard(int id)
+    {
+        Debug.Log("PickedCard");
+        selectedCard = cardsInHand[id];
+        DiscardUsedCard(id);
+    }
+    public void DiscardUsedCard(int id)
+    {
+        cardsInHand.RemoveAt(id);
+        
+        GameObject obj = cardsInHandObj[id];
+        cardsInHandObj.RemoveAt(id);
+        Destroy(obj);
+
     }
 }

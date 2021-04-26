@@ -33,17 +33,26 @@ public class Enemy: MonoBehaviour
     /// Current health points 
     /// </summary>
     public int currentHealthPoints;
+    /// <summary>
+    /// Reference for enemy GUI
+    /// </summary>
+    public EnemyGUI enemyGUI;
 
+    /// <summary>
+    /// Enemy data
+    /// </summary>
+    public EnemySO enemySO;
 
     public void LoadEnemy(EnemySO enemyData)
     {
-        
+        this.enemySO = enemyData;
         this.enemyName = enemyData.enemyName;
         this.cards = enemyData.cards;
         this.graphic = enemyData.graphic;
         this.description = enemyData.description;
         this.enemyType = enemyData.enemyType;
         this.healthPoints = enemyData.healthPoints;
+        this.currentHealthPoints = enemyData.healthPoints;
 
     }
 
