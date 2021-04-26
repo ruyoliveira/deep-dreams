@@ -62,6 +62,7 @@ public class GamePhasesManager : MonoBehaviour
         // Player draws three cards
         player.hand.DrawCard();
         player.hand.DrawCard();
+        enemyManager.currentEnemyOrder = 0;
         enemyManager.NextEnemy();
     }
 
@@ -127,7 +128,12 @@ public class GamePhasesManager : MonoBehaviour
             // todo game over
             Debug.Log("GameOver");
         }
-        else if(enemyManager.currentEnemy.currentHealthPoints <= 0)
+        else
+        {
+            player.hp += battleResult[2]; // Recover HP after  damage is applied and if both survived
+
+        }
+        if (enemyManager.currentEnemy.currentHealthPoints <= 0)
         {
             Debug.Log("Monster defeated");
             enemyManager.NextEnemy();   // call next enemy
@@ -136,7 +142,6 @@ public class GamePhasesManager : MonoBehaviour
         else 
         {
             
-            player.hp += battleResult[2]; // Recover HP after  damage is applied and if both survived
             enemyManager.currentEnemy.AddHP(battleResult[3]);
         }
         Debug.Log("After Battle - Player HP: " + player.hp);

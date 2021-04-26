@@ -11,7 +11,7 @@ public class EnemyManager : MonoBehaviour
     public void Start()
     {
         //enemySpawner.SpawnEnemy(enemiesData[0], enemySpawner.transform);
-        currentEnemyOrder = 0;
+        //currentEnemyOrder = 0;
         //NextEnemy();
 
     }
@@ -26,5 +26,6 @@ public class EnemyManager : MonoBehaviour
             Destroy(currentEnemy.gameObject);
         enemySpawner.SpawnEnemy(enemiesData[currentEnemyOrder++], enemySpawner.transform);
         currentEnemy = enemySpawner.enemyObj;
+        Debug.Log("New enemy: "+ enemiesData[currentEnemyOrder].enemyName);
     }
 }

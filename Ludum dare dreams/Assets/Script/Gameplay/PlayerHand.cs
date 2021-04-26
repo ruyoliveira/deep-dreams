@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHand : MonoBehaviour
 {
-    public CardSO[] cardDeck;
+    public Deck cardDeck;
     public CardSpawner cardSpawner;
     public CardSO drawnCard;
     public CardSO selectedCard;
@@ -31,7 +31,7 @@ public class PlayerHand : MonoBehaviour
     /// </summary>
     public void DrawCard()
     {
-        drawnCard = cardDeck[Random.Range(0,cardDeck.Length)];
+        drawnCard = cardDeck.DrawRandomCard(true,true,true,true,true);
         GameObject spawnedCard = cardSpawner.SpawnCard(this.drawnCard, this.transform);
         spawnedCard.GetComponent<CardClickNotifier>().SetCardID(cardsInHandObj.Count, this); // setup click notifier of instantiated card
         cardsInHandObj.Add(spawnedCard);
