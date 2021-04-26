@@ -11,13 +11,16 @@ public class Deck : MonoBehaviour
     public List<CardSO> eliteDeck;
 
     public List<CardSO> allCards;
+
+    public bool isDivided = false;
+ 
     public void DivideCardsInCategory()
     {
-        List<CardSO> normalDeck = new List<CardSO>();
-        List<CardSO> refinedDeck = new List<CardSO>();
-        List<CardSO> uniqueDeck = new List<CardSO>();
-        List<CardSO> superDeck = new List<CardSO>();
-        List<CardSO> eliteDeck = new List<CardSO>();
+        normalDeck = new List<CardSO>();
+        refinedDeck = new List<CardSO>();
+        uniqueDeck = new List<CardSO>();
+        superDeck = new List<CardSO>();
+        eliteDeck = new List<CardSO>();
 
         foreach(CardSO card in allCards)
         {
@@ -39,11 +42,16 @@ public class Deck : MonoBehaviour
                     eliteDeck.Add(card);
                     break;
             }
+            isDivided = true;
         }
     }
 
     public CardSO DrawRandomCard(bool normal, bool refined, bool unique, bool super, bool elite)
     {
+        if(!isDivided)
+        {
+            DivideCardsInCategory();
+        }
         List<CardSO> combinedCardList = new List<CardSO>();
         if (normal)
             combinedCardList.AddRange(this.normalDeck);

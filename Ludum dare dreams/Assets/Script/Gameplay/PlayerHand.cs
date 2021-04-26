@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerHand : MonoBehaviour
 {
-    public Deck cardDeck;
+    public Deck gameDeck;
+    public CardSO[] cardDeck;
     public CardSpawner cardSpawner;
     public CardSO drawnCard;
     public CardSO selectedCard;
@@ -29,9 +30,11 @@ public class PlayerHand : MonoBehaviour
     /// <summary>
     /// Draws a new card, spawn and update the HUD to put it in the players hand
     /// </summary>
-    public void DrawCard()
+    public void DrawCard(int turn)
     {
-        drawnCard = cardDeck.DrawRandomCard(true,true,true,true,true);
+        //if(gameDeck!= null)
+        //    gameDeck.DivideCardsInCategory();
+        drawnCard = gameDeck.DrawRandomCard(true,false, false, false, false);//cardDeck[Random.Range(0,cardDeck.Length)];
         GameObject spawnedCard = cardSpawner.SpawnCard(this.drawnCard, this.transform);
         spawnedCard.GetComponent<CardClickNotifier>().SetCardID(cardsInHandObj.Count, this); // setup click notifier of instantiated card
         cardsInHandObj.Add(spawnedCard);

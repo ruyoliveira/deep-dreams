@@ -290,6 +290,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 79d87a80158550941be390c2b7bc4a30, type: 2}
   - {fileID: 11400000, guid: f2147a37e0d69364cbf2abe86b14757a, type: 2}
   - {fileID: 11400000, guid: f7b90e1e24cef9a4fa1bb1e39c9bdab5, type: 2}
+  isDivided: 0
 --- !u!1 &369540187
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,30 +449,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431261546}
   m_CullTransparentMesh: 1
---- !u!1 &695855186 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3253869636734785776, guid: 780c6fca19b48b04c8c18c087ebae77e, type: 3}
-  m_PrefabInstance: {fileID: 3253869635839909607}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &695855189
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695855186}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f776a8660265db84b9c7da17d99a8f60, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &745930883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -479,38 +456,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7444479}
     m_Modifications:
-    - target: {fileID: 1353644169, guid: e5934b07c3071a94b8c76f07c74eb1a9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353644170, guid: e5934b07c3071a94b8c76f07c74eb1a9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353644170, guid: e5934b07c3071a94b8c76f07c74eb1a9, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 205.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353644170, guid: e5934b07c3071a94b8c76f07c74eb1a9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353644170, guid: e5934b07c3071a94b8c76f07c74eb1a9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353644170, guid: e5934b07c3071a94b8c76f07c74eb1a9, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.0014725
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353644170, guid: e5934b07c3071a94b8c76f07c74eb1a9, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.0014095
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353644173, guid: e5934b07c3071a94b8c76f07c74eb1a9, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 63d06b2fd8016384883f7661b627136d, type: 2}
     - target: {fileID: 1657143440702634734, guid: e5934b07c3071a94b8c76f07c74eb1a9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -754,7 +699,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3253869636734785788, guid: 780c6fca19b48b04c8c18c087ebae77e, type: 3}
   m_PrefabInstance: {fileID: 3253869635839909607}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695855186}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aff0a42a504b2e24a9edd225b192a367, type: 3}
@@ -1069,7 +1014,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d92a29b7982374e8f5c4921ca1201c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardDeck: {fileID: 0}
+  gameDeck: {fileID: 213059499}
+  cardDeck:
+  - {fileID: 11400000, guid: f84b3f27bed08ac4aaad7df180336f69, type: 2}
+  - {fileID: 11400000, guid: 01292de2bddd0014292d42dfdf7695bf, type: 2}
+  - {fileID: 11400000, guid: b306f3a20f36cd449a98342b24e2f7f5, type: 2}
+  - {fileID: 11400000, guid: b326a5304900dd44abc80cbe89b89e16, type: 2}
+  - {fileID: 11400000, guid: 468e3c35a7192e143ba1276d6d96fd53, type: 2}
+  - {fileID: 11400000, guid: ae8d6d178b04fcd48a717c17aa8c702e, type: 2}
+  - {fileID: 11400000, guid: 1a4cc93cbc0b8224a8a7a7389d9ccac4, type: 2}
+  - {fileID: 11400000, guid: 8b5532f0dbd0039499b7507c679729d1, type: 2}
+  - {fileID: 11400000, guid: 0a5f92eec23412a47a2351907c446af0, type: 2}
+  - {fileID: 11400000, guid: cf1073723bb6de546ad4e99ba571c028, type: 2}
+  - {fileID: 11400000, guid: 9183bdec0bc737f43bd48e903026161e, type: 2}
+  - {fileID: 11400000, guid: f9e6680c8059e5947a0f2a4a2c2aeb81, type: 2}
+  - {fileID: 11400000, guid: 79d87a80158550941be390c2b7bc4a30, type: 2}
+  - {fileID: 11400000, guid: f2147a37e0d69364cbf2abe86b14757a, type: 2}
+  - {fileID: 11400000, guid: f7b90e1e24cef9a4fa1bb1e39c9bdab5, type: 2}
   cardSpawner: {fileID: 1797128346}
   drawnCard: {fileID: 11400000, guid: b326a5304900dd44abc80cbe89b89e16, type: 2}
   selectedCard: {fileID: 0}
@@ -1307,6 +1268,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 839590009}
     m_Modifications:
+    - target: {fileID: 212558244, guid: 780c6fca19b48b04c8c18c087ebae77e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 115.532
+      objectReference: {fileID: 0}
+    - target: {fileID: 212558244, guid: 780c6fca19b48b04c8c18c087ebae77e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 97.938
+      objectReference: {fileID: 0}
+    - target: {fileID: 212558244, guid: 780c6fca19b48b04c8c18c087ebae77e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -88.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212558244, guid: 780c6fca19b48b04c8c18c087ebae77e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 203.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 212558245, guid: 780c6fca19b48b04c8c18c087ebae77e, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253869635223375688, guid: 780c6fca19b48b04c8c18c087ebae77e, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253869635223375688, guid: 780c6fca19b48b04c8c18c087ebae77e, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253869635223375688, guid: 780c6fca19b48b04c8c18c087ebae77e, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253869635223375688, guid: 780c6fca19b48b04c8c18c087ebae77e, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 38
+      objectReference: {fileID: 0}
     - target: {fileID: 3253869636734785776, guid: 780c6fca19b48b04c8c18c087ebae77e, type: 3}
       propertyPath: m_Name
       value: Player

@@ -15,7 +15,7 @@ public class GamePhasesManager : MonoBehaviour
 
     public CardSO playerSelectedCard;
     public CardSO enemySelectedCard;
-
+    public int turnCounter;
 
     
     void Start()
@@ -60,10 +60,12 @@ public class GamePhasesManager : MonoBehaviour
     public void GameSetup()
     {
         // Player draws three cards
-        player.hand.DrawCard();
-        player.hand.DrawCard();
+        turnCounter = 0;
+        player.hand.DrawCard(turnCounter);
+        player.hand.DrawCard(turnCounter);
         enemyManager.currentEnemyOrder = 0;
         enemyManager.NextEnemy();
+       
     }
 
     /// <summary>
@@ -73,7 +75,7 @@ public class GamePhasesManager : MonoBehaviour
     {
         Debug.Log("Begin turn - Player HP: " + player.hp);
         Debug.Log("Begin turn - Enemy HP: " + enemyManager.currentEnemy.currentHealthPoints);
-        player.hand.DrawCard();
+        player.hand.DrawCard(turnCounter);
         NextPhase();
 
             
@@ -112,6 +114,7 @@ public class GamePhasesManager : MonoBehaviour
         // todo: discard cards
         playerSelectedCard = null;
         enemySelectedCard = null;
+        turnCounter++;
         NextPhase();
     }
 
