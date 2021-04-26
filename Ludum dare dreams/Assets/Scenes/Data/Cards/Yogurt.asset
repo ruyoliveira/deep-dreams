@@ -17,5 +17,5 @@ MonoBehaviour:
   graphic: {fileID: 21300000, guid: e4288406331a07b4b88fa5e78e296d6a, type: 3}
   cost: 6
   value: 4
-  description: 
+  description: Delicious drink for snack.
   rarity: 3
