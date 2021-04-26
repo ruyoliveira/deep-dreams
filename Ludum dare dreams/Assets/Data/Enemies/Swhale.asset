@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b558482ebf7136945be4d282e83dcb09, type: 2}
   - {fileID: 11400000, guid: b558482ebf7136945be4d282e83dcb09, type: 2}
   graphic: {fileID: 21300000, guid: 9158263b82c12a747bf82d93e7a79da4, type: 3}
-  description: 
+  description: A Whale with many teeth.
   enemyType: 0
   healthPoints: 10
   animatorController: {fileID: 9100000, guid: 8a7d3200a81dd064a9f5f9880bc4a5e7, type: 2}

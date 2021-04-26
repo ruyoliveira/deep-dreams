@@ -17,5 +17,5 @@ MonoBehaviour:
   graphic: {fileID: 21300000, guid: 3babf79a5b9f8544ba2b9f0e54b18934, type: 3}
   cost: 1
   value: 1
-  description: 
+  description: Ball made of socks the bigger the heavier it gets.
   rarity: 0
