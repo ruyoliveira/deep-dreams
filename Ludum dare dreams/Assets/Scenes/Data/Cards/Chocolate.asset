@@ -17,5 +17,5 @@ MonoBehaviour:
   graphic: {fileID: 21300000, guid: f547b6b55d22f054786525d0b255209c, type: 3}
   cost: 4
   value: 3
-  description: 
+  description: Delicious chocolate bar.
   rarity: 2

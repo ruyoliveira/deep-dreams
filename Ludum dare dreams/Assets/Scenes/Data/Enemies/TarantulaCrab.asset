@@ -18,6 +18,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e0e939dded90b0948a15da3daafc5c45, type: 2}
   - {fileID: 11400000, guid: e0e939dded90b0948a15da3daafc5c45, type: 2}
   graphic: {fileID: 0}
-  description: 
+  description:Crabs have very short tail and are covered with a thick shell, or exoskeleton and are armed with a single pair of claws.
   enemyType: 0
   healthPoints: 8

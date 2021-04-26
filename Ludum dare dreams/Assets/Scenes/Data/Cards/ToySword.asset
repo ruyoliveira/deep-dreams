@@ -17,5 +17,5 @@ MonoBehaviour:
   graphic: {fileID: 21300000, guid: c46ecb49912e2ad4c8d8d7132af5f543, type: 3}
   cost: 6
   value: 4
-  description: 
+  description: Toy accessory to damage the enemy.
   rarity: 3
