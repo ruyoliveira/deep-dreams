@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public PlayerHand hand;
     public int energy;
-
+    public int hp;
     public void Start()
     {
        

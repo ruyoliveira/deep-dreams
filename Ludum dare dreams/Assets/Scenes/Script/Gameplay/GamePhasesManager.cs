@@ -9,11 +9,14 @@ public class GamePhasesManager : MonoBehaviour
 {
     public GamePhases currentPhase;
     public Player player;
+    public EnemyManager enemyManager;
     public Judge battleJudge;
 
     public CardSO playerSelectedCard;
     public CardSO enemySelectedCard;
-    // Start is called before the first frame update
+
+
+    Vector4 battleResult;
     void Start()
     {
         
@@ -75,7 +78,7 @@ public class GamePhasesManager : MonoBehaviour
     public void ResolveBattlePhase()
     {
         // todo: move cards to battle area
-        Vector4 battleResult = battleJudge.ResolveBattle(playerSelectedCard,enemySelectedCard);
+        battleResult = battleJudge.ResolveBattle(playerSelectedCard,enemySelectedCard);
         Debug.Log(battleResult);
         NextPhase();
 
@@ -91,5 +94,23 @@ public class GamePhasesManager : MonoBehaviour
         NextPhase();
     }
 
-    
+
+    public void ProcessBattleResult()
+    {
+        player.hp +=  (int)battleResult.x;
+        enemyManager.currentEnemy.currentHealthPoints += (int)battleResult.y;
+        if(player.hp <=0)
+        {
+            Debug.Log("GameOver");
+        }
+        else if(enemyManager.currentEnemy.currentHealthPoints <= 0)
+        {
+            Debug.Log("Monster defeated");
+            enemyManager.NextEnemy();
+            NextPhase();
+        }
+        
+
+    }
+
 }

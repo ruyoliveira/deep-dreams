@@ -669,6 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 1797128345}
   energy: 0
+  hp: 0
 --- !u!1 &1375920424
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +985,7 @@ GameObject:
   - component: {fileID: 1804501161}
   - component: {fileID: 1804501162}
   m_Layer: 0
-  m_Name: DungeonManager
+  m_Name: EnemyManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1148,6 +1149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPhase: 0
   player: {fileID: 1319847451}
+  enemyManager: {fileID: 0}
   battleJudge: {fileID: 145184509}
   playerSelectedCard: {fileID: 11400000, guid: 01292de2bddd0014292d42dfdf7695bf, type: 2}
   enemySelectedCard: {fileID: 11400000, guid: 6750b05217c8ec74e9c1b581cd00433a, type: 2}
