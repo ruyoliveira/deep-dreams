@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerGUI : MonoBehaviour
 {
     public Text hp;
+    public Text energy;
 
 
 }

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int hp;
     public int maxHP;
     public PlayerGUI playerGUI;
+    
     public void Start()
     {
         RefreshGUI();
@@ -16,11 +17,18 @@ public class Player : MonoBehaviour
     public void RefreshGUI()
     {
         playerGUI.hp.text = this.hp.ToString();
+        playerGUI.energy.text = this.energy.ToString();
 
     }
     public void AddDamage(int value)
     {
         hp += value;
         RefreshGUI();
+    }
+    public void AddEnergy(int value)
+    {
+        energy += value;
+        RefreshGUI();
+
     }
 }

@@ -29,6 +29,7 @@ public class Deck : MonoBehaviour
                 case  CardRarity.Normal:
                     normalDeck.Add(card);
                     break;
+                   
                 case CardRarity.Refined:
                     refinedDeck.Add(card);
                     break;
@@ -56,13 +57,13 @@ public class Deck : MonoBehaviour
         if (normal)
             combinedCardList.AddRange(this.normalDeck);
         if(refined)
-            combinedCardList.AddRange(this.normalDeck);
+            combinedCardList.AddRange(this.refinedDeck);
         if (unique)
-            combinedCardList.AddRange(this.normalDeck);
+            combinedCardList.AddRange(this.uniqueDeck);
         if (super)
-            combinedCardList.AddRange(this.normalDeck);
+            combinedCardList.AddRange(this.superDeck);
         if (elite)
-            combinedCardList.AddRange(this.normalDeck);
+            combinedCardList.AddRange(this.eliteDeck);
 
         return combinedCardList[Random.Range(0,combinedCardList.Count)];
 
