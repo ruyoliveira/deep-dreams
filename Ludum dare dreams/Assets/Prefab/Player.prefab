@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3253869635223375703}
   - component: {fileID: 3253869635223375688}
   m_Layer: 5
-  m_Name: HP
+  m_Name: hpText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,9 +171,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 0}
   energy: 0
-  hp: 5
+  hp: 10
   maxHP: 0
-  playerGUI: {fileID: 0}
+  playerGUI: {fileID: 3253869636734785787}
 --- !u!114 &3253869636734785787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,4 +186,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e6fab136877aa4882ae7f9ac4d9b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: {fileID: 0}
+  hp: {fileID: 3253869635223375688}

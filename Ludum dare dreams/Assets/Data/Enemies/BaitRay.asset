@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb1bcc58680de8408b9b9a4f41250a1, type: 3}
+  m_Name: BaitRay
+  m_EditorClassIdentifier: 
+  enemyName: BaitRay
+  cards:
+  - {fileID: 11400000, guid: e0e939dded90b0948a15da3daafc5c45, type: 2}
+  - {fileID: 11400000, guid: 6750b05217c8ec74e9c1b581cd00433a, type: 2}
+  - {fileID: 11400000, guid: e0e939dded90b0948a15da3daafc5c45, type: 2}
+  graphic: {fileID: 21300000, guid: a44e8c9445f702d4f8745815b9519351, type: 3}
+  description: A fish that has a large, flat body.
+  enemyType: 0
+  healthPoints: 5
+  animatorController: {fileID: 9100000, guid: a64554250c69584428d513bd2bbb7e8d, type: 2}
