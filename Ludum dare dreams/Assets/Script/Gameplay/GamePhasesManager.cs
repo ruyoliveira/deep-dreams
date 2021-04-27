@@ -97,8 +97,8 @@ public class GamePhasesManager : MonoBehaviour
             // Verifies if has eneough energy and uses
             if(player.hand.selectedCard.cost <= player.energy)
             {
-                // Consume card energy
-                player.AddEnergy(- player.hand.selectedCard.cost);
+                // TODO Consume card energy
+                //player.AddEnergy(- player.hand.selectedCard.cost);
                 enemySelectedCard = enemyManager.currentEnemy.UseCurrentCard();
                 playerSelectedCard = player.hand.UseCurrentCard();
                 NextPhase();
