@@ -20,12 +20,20 @@ public class EnemyManager : MonoBehaviour
         
     }
     
-    public void NextEnemy()
+    public bool NextEnemy()
     {
         if(currentEnemy)
             Destroy(currentEnemy.gameObject);
-        enemySpawner.SpawnEnemy(enemiesData[currentEnemyOrder++], enemySpawner.transform);
-        currentEnemy = enemySpawner.enemyObj;
-        Debug.Log("New enemy: "+ enemiesData[currentEnemyOrder].enemyName);
+        
+        if(currentEnemyOrder < enemiesData.Length)
+        {
+            enemySpawner.SpawnEnemy(enemiesData[currentEnemyOrder++], enemySpawner.transform);
+            currentEnemy = enemySpawner.enemyObj;
+            Debug.Log("New enemy: " + enemiesData[currentEnemyOrder].enemyName);
+            return true;
+        }
+        // No more enemies
+        else
+            return false;
     }
 }

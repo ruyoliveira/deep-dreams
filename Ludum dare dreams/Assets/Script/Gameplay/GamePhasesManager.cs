@@ -176,8 +176,15 @@ public class GamePhasesManager : MonoBehaviour
         if (enemyManager.currentEnemy.currentHealthPoints <= 0)
         {
             Debug.Log("Monster defeated");
-            enemyManager.NextEnemy();   // call next enemy
-            NextPhase();    // continue to next game phase
+            if (enemyManager.NextEnemy())   // call next enemy
+            {
+                NextPhase();    // continue to next game phase
+            }
+            else
+            {
+                GameOver();
+            }
+            
         }
         else 
         {
