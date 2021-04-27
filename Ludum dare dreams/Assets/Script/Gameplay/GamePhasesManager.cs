@@ -152,7 +152,7 @@ public class GamePhasesManager : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene("Combate1");
+        SceneManager.LoadScene("GameOver");
     }
 
     /// <summary>
