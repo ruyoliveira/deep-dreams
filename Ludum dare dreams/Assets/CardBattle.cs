@@ -9,6 +9,7 @@ public class CardBattle : MonoBehaviour
     public CardSO cardBattleSO1;
     public CardSO cardBattleSO2;
     public bool endBattle;
+    public bool startBattle;
     public float timer;
     public float maxTime;
 
@@ -18,19 +19,24 @@ public class CardBattle : MonoBehaviour
         cardBattleGUI2.gameObject.SetActive(false);
 
     }
-    public void PositionCards(CardSO card1, CardSO card2)
+    public void StartBattle(CardSO card1, CardSO card2)
     {
         cardBattleSO1 = card1;
         cardBattleSO2 = card2;
         cardBattleGUI1.Setup(cardBattleSO1);
-        cardBattleGUI1.Setup(cardBattleSO2);
+        cardBattleGUI2.Setup(cardBattleSO2);
+        cardBattleGUI1.gameObject.SetActive(true);
+        cardBattleGUI2.gameObject.SetActive(true);
         endBattle = false;
+        startBattle = true;
+        timer = 0.0f;
 
     }
     public void EndBattle()
     {
         ClearCards();
         endBattle = true;
+        startBattle = false;
     }
 
     // Update is called once per frame

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5434d2d63228ccc44be6e28f2770d980, type: 3}
-  m_Name: VeryStrongAttack
+  m_Name: WeakHeal
   m_EditorClassIdentifier: 
-  cardName: VeryStrong
-  type: 0
-  graphic: {fileID: -2977015465861318648, guid: d2206da71226b9c46a068e9bce2fb251, type: 3}
+  cardName: WeakHeal
+  type: 2
+  graphic: {fileID: -7445498476293454536, guid: d2206da71226b9c46a068e9bce2fb251, type: 3}
   cost: 0
-  value: 5
-  description: Enemy performed a weak strong attack
+  value: 2
+  description: it heals
   rarity: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GamePhases {BEGIN_TURN, PLANNING, RESOLVE_BATTLE, END_TURN}
+public enum GamePhases {BEGIN_TURN, PLANNING, BATTLE_PHASE, RESOLVE_BATTLE, END_TURN}
 /// <summary>
 /// Manages the game actions and transition between phases
 /// </summary>
@@ -13,11 +13,12 @@ public class GamePhasesManager : MonoBehaviour
     public Player player;
     public EnemyManager enemyManager;
     public Judge battleJudge;
-
+    public CardBattle battleGUI;
     public CardSO playerSelectedCard;
     public CardSO enemySelectedCard;
     public int turnCounter;
     public int energyPerTurn= 2;
+    public GameObject bossBackground;
     /// <summary>
     /// Each slot corresponds to a card rarity. Specifies if a specific rarity is locked(false) or unlocker(true) for draw phase
     /// </summary>
@@ -40,6 +41,9 @@ public class GamePhasesManager : MonoBehaviour
             case GamePhases.PLANNING:
                 //Debug.Log("PLANNING");
                 PlanningPhase();
+                break;
+            case GamePhases.BATTLE_PHASE:
+                BattlePhase();
                 break;
             case GamePhases.RESOLVE_BATTLE:
                 //Debug.Log("RESOLVE_BATTLE");
@@ -83,6 +87,7 @@ public class GamePhasesManager : MonoBehaviour
         Debug.Log("Begin turn - Player HP: " + player.hp);
         Debug.Log("Begin turn - Enemy HP: " + enemyManager.currentEnemy.currentHealthPoints);
         player.hand.DrawCard(turnCounter, cardDraft);
+        player.hand.EnableCardPicking();
         NextPhase();
 
             
@@ -101,6 +106,8 @@ public class GamePhasesManager : MonoBehaviour
                 //player.AddEnergy(- player.hand.selectedCard.cost);
                 enemySelectedCard = enemyManager.currentEnemy.UseCurrentCard();
                 playerSelectedCard = player.hand.UseCurrentCard();
+                battleGUI.StartBattle(playerSelectedCard, enemySelectedCard);  // Position the cards and starts battle
+                player.hand.DisableCardPicking();
                 NextPhase();
             }
             // Pick another card
@@ -112,6 +119,17 @@ public class GamePhasesManager : MonoBehaviour
            
         }
     }
+    public void BattlePhase()
+    {
+        
+        if(battleGUI.endBattle)
+        {
+            Debug.Log("EndBattle");
+            NextPhase();
+        }
+       
+    }
+
     /// <summary>
     /// Resulve battle comparing both card choices. Updates player and enemy hp based on the results.
     /// </summary>
@@ -142,8 +160,16 @@ public class GamePhasesManager : MonoBehaviour
         {
             player.AddEnergy(-(player.energy - 10));
         }
-        if(turnCounter < cardDraft.Length)
-            cardDraft[turnCounter] = true;
+        //if(turnCounter < cardDraft.Length)
+        //    cardDraft[turnCounter] = true;
+        if (enemyManager.currentEnemyOrder < cardDraft.Length)
+            cardDraft[enemyManager.currentEnemyOrder] = true;
+        // blocks normal and refined after the second enemy
+        else if (enemyManager.currentEnemyOrder > 4)
+        {
+            cardDraft[0] = false; // blocks normal
+            cardDraft[1] = false; // blocks refined
+        }
         NextPhase();
     }
 
@@ -176,8 +202,14 @@ public class GamePhasesManager : MonoBehaviour
         if (enemyManager.currentEnemy.currentHealthPoints <= 0)
         {
             Debug.Log("Monster defeated");
+           
             if (enemyManager.NextEnemy())   // call next enemy
             {
+                // Check if boss
+                if (enemyManager.currentEnemy.enemyType == EnemyType.Boss)
+                {
+                    bossBackground.SetActive(true); // ativa o background do boss
+                }
                 NextPhase();    // continue to next game phase
             }
             else

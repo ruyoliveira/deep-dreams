@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Strong
   type: 0
-  graphic: {fileID: 0}
+  graphic: {fileID: -2640367509562869496, guid: d2206da71226b9c46a068e9bce2fb251, type: 3}
   cost: 0
   value: 3
-  description: 
+  description: Enemy performed a VERY STRONG  attack
   rarity: 0

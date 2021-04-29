@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Weak
   type: 0
-  graphic: {fileID: 0}
+  graphic: {fileID: -8144534994874435676, guid: d2206da71226b9c46a068e9bce2fb251, type: 3}
   cost: 0
   value: 1
-  description: 
+  description: Enemy performed a weak attack
   rarity: 0

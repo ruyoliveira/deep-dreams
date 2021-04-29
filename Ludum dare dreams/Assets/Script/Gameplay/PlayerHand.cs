@@ -12,6 +12,7 @@ public class PlayerHand : MonoBehaviour
     public CardGUI selectedCardGUI;
     public int selectedCardId;
     public List<GameObject> cardsInHandObj;
+    public bool canPickCard = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,13 +42,26 @@ public class PlayerHand : MonoBehaviour
         cardsInHandObj.Add(spawnedCard);
         
     }
-
+    // Enable/disable card picking during the right phase
+    public void EnableCardPicking()
+    {
+        canPickCard = true;
+    }
+    public void DisableCardPicking()
+    {
+        canPickCard = false;
+    }
     public void PickCard(CardGUI cardGUI)
     {
+        if(canPickCard)
+        {
+
+       
         Debug.Log("Player SelectedCard:" + cardGUI.cardData.cardName);
         selectedCard = cardGUI.cardData;//cardsInHandObj[id].GetComponent<CardGUI>().cardData;
         selectedCardGUI = cardGUI;
-        //selectedCardId = cardsInHandObj.Find(cardGUI.gameObject);
+            //selectedCardId = cardsInHandObj.Find(cardGUI.gameObject);
+        }
 
 
     }
