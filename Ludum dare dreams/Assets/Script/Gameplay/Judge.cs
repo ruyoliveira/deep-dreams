@@ -28,9 +28,10 @@ public class Judge : MonoBehaviour
                     break;
                 case CardType.Defense:
                     result[0] = 0;
-                    result[1] = Mathf.Clamp(enemyCard.value - playerCard.value, playerCard.value, 0);
+                    result[1] = Mathf.Clamp(enemyCard.value - playerCard.value, -playerCard.value, 0);
                     result[2] = 0;
                     result[3] = 0;
+                    Debug.Log("Def monstro:" + enemyCard.value.ToString());
                     break;
                 case CardType.Support:
                     result[0] = 0;

@@ -15,6 +15,7 @@ MonoBehaviour:
   enemyName: 
   cards:
   - {fileID: 11400000, guid: b558482ebf7136945be4d282e83dcb09, type: 2}
+  - {fileID: 11400000, guid: 0946d5bb9dd88ee4abfbab9bd36b0c05, type: 2}
   - {fileID: 11400000, guid: b558482ebf7136945be4d282e83dcb09, type: 2}
   - {fileID: 11400000, guid: e0e939dded90b0948a15da3daafc5c45, type: 2}
   graphic: {fileID: 21300000, guid: d2d92921b8c748241b572e2e2f7318b1, type: 3}
