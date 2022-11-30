@@ -54,6 +54,10 @@ public class Enemy: MonoBehaviour
     /// </summary>
     public EnemySO enemySO;
 
+    /// <summary>
+    /// Populate enemy info using card data SO
+    /// </summary>
+    /// <param name="enemyData"></param>
     public void LoadEnemy(EnemySO enemyData)
     {
         this.enemySO = enemyData;
@@ -68,25 +72,45 @@ public class Enemy: MonoBehaviour
         this.currentCardId = 0;
         this.currentCardData = cards[this.currentCardId];
     }
+    /// <summary>
+    /// Move to next card
+    /// </summary>
     public void NextCard()
     {
+        // Update current card ID
         this.currentCardId = this.currentCardId < cards.Length-1 ? ++currentCardId: 0;
+        // Get current card data from array
         this.currentCardData = cards[this.currentCardId];
     }
+    /// <summary>
+    /// Use current card
+    /// </summary>
+    /// <returns>used card data(SO)</returns>
     public CardSO UseCurrentCard()
     {
+        // Get used card data
         CardSO usedCard = this.currentCardData;
+        // Move to next card
         NextCard();
         return usedCard;
     }
 
+    /// <summary>
+    /// Referesh GUI to reflect current enemy state
+    /// </summary>
     public void RefreshGUI()
     {
         enemyGUI.healthPoints.text = currentHealthPoints.ToString();
     }
-    public void AddHP(int damage)
+    /// <summary>
+    /// Add/subtracts health points
+    /// </summary>
+    /// <param name="value">amount to be added</param>
+    public void AddHP(int value)
     {
-        currentHealthPoints += damage;
+        // Add value to health points
+        currentHealthPoints += value;
+        // Referesh GUI to reflect current enemy state
         RefreshGUI();
     }
 

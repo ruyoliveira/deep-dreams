@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CarregarCena : MonoBehaviour
+public class LoadScene : MonoBehaviour
 {
-    public void CarregarLevel(string cena)
+    public void LoadByName(string cena)
     {
         SceneManager.LoadScene(cena);
         

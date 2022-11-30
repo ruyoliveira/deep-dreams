@@ -4,43 +4,40 @@ using UnityEngine;
 
 public class PlayerHand : MonoBehaviour
 {
+    // Reference to player's card deck manager
     public Deck gameDeck;
+    // Data of cards into deck
     public CardSO[] cardDeck;
+    // Card spawner reference
     public CardSpawner cardSpawner;
+    // Drawn card data
     public CardSO drawnCard;
+    // Selected card data
     public CardSO selectedCard;
+    // Card GUI handler  reference
     public CardGUI selectedCardGUI;
-    public int selectedCardId;
+    // List of cards in hand
     public List<GameObject> cardsInHandObj;
+    // Can pick card flag
     public bool canPickCard = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-        //foreach(CardSO card in cardsInHand)
-        //{
-        //    cardSpawner.SpawnCard(card, this.transform);
-        //}
 
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     /// <summary>
     /// Draws a new card, spawn and update the HUD to put it in the players hand
     /// </summary>
+    /// <param name="turn">current turn</param>
+    /// <param name="cardDraft">enabled rarities array</param>
     public void DrawCard(int turn, bool[] cardDraft)
     {
-        //if(gameDeck!= null)
-        //    gameDeck.DivideCardsInCategory();
+        // Draw card from the enabled card rarities specified on the cardDraft array
         drawnCard = gameDeck.DrawRandomCard(cardDraft[0], cardDraft[1], cardDraft[2], cardDraft[3], cardDraft[4]);//cardDeck[Random.Range(0,cardDeck.Length)];
+        // Spawn card and store reference to new card game object
         GameObject spawnedCard = cardSpawner.SpawnCard(this.drawnCard, this.transform);
-        spawnedCard.GetComponent<CardClickNotifier>().SetCardID(cardsInHandObj.Count, this); // setup click notifier of instantiated card
+        // Setup click notifier of instantiated card
+        spawnedCard.GetComponent<CardClickNotifier>().SetCardID(cardsInHandObj.Count, this); 
+        // Add instantiated card to list of cards in hand
         cardsInHandObj.Add(spawnedCard);
-        
+
     }
     // Enable/disable card picking during the right phase
     public void EnableCardPicking()
@@ -51,39 +48,49 @@ public class PlayerHand : MonoBehaviour
     {
         canPickCard = false;
     }
+    /// <summary>
+    /// Pick/select card from hand to use
+    /// </summary>
+    /// <param name="cardGUI">cardGUI handler reference</param>
     public void PickCard(CardGUI cardGUI)
     {
-        if(canPickCard)
+        // Check if can pick card
+        if (canPickCard)
         {
-
-       
-        Debug.Log("Player SelectedCard:" + cardGUI.cardData.cardName);
-        selectedCard = cardGUI.cardData;//cardsInHandObj[id].GetComponent<CardGUI>().cardData;
-        selectedCardGUI = cardGUI;
-            //selectedCardId = cardsInHandObj.Find(cardGUI.gameObject);
+            Debug.Log("Player SelectedCard:" + cardGUI.cardData.cardName);
+            // Get card data from cardGUI
+            selectedCard = cardGUI.cardData;
+            // Store cardGUI of selected card
+            selectedCardGUI = cardGUI;
         }
 
 
     }
-    public void Discard2(GameObject obj)
+    /// <summary>
+    /// Discard used card
+    /// </summary>
+    /// <param name="obj">reference to card object</param>
+    public void Discard(GameObject obj)
     {
+        // Remove card from list
         cardsInHandObj.Remove(obj);
+        // Destroy card object
         Destroy(obj);
     }
-    public void DiscardUsedCard(int id)
-    {
 
-        //GameObject obj = cardsInHandObj[id];
-        //cardsInHandObj.RemoveAt(id);
-        //Destroy(obj);
-
-    }
+    /// <summary>
+    /// Use current card procedure
+    /// </summary>
+    /// <returns>reference to used card data (SO)</returns>
     public CardSO UseCurrentCard()
     {
+        // Get data from used card
         CardSO usedCard = this.selectedCard;
-        Discard2(selectedCardGUI.gameObject);
-        //DiscardUsedCard(this.selectedCardId);
+        // Discard
+        Discard(selectedCardGUI.gameObject);
+        // Empty selectedCard variable
         this.selectedCard = null;
+        // Returns used card data
         return usedCard;
     }
 }

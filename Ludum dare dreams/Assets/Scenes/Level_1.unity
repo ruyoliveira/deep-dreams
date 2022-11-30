@@ -152,6 +152,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 745930884}
   - {fileID: 1872010011}
@@ -254,6 +255,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 376.87332, y: 229.66931, z: -268.1904}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -382,6 +384,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -414,6 +417,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 839590009}
   m_RootOrder: 0
@@ -490,6 +494,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7825042316970918422}
   - {fileID: 1544243583}
@@ -755,6 +760,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 431261547}
   - {fileID: 1883076165}
@@ -797,6 +803,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -847,6 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -879,6 +887,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1006,6 +1015,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 50.842457, y: 27.243093, z: -108.27509}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -1160,6 +1170,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 839590009}
   m_RootOrder: 4
@@ -1321,6 +1332,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 839590009}
   m_RootOrder: 2
@@ -1514,6 +1526,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 839590009}
   m_RootOrder: 1
@@ -1844,41 +1857,45 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7444482}
     - target: {fileID: 6561921077846934152, guid: fd64cc1dbfb96aa47822d801d4b5c530, type: 3}
+      propertyPath: enemiesData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: d22089ca75f201b4aa5fcb62be62633e, type: 2}
+    - target: {fileID: 6561921077846934152, guid: fd64cc1dbfb96aa47822d801d4b5c530, type: 3}
       propertyPath: enemiesData.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 6ad6ab4fba98f1b429088f342080f904, type: 2}
+      objectReference: {fileID: 11400000, guid: f32221b5fc18d0c4aa502387edd8b73a, type: 2}
     - target: {fileID: 6561921077846934152, guid: fd64cc1dbfb96aa47822d801d4b5c530, type: 3}
       propertyPath: enemiesData.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 61bfd1b8a08771c428638a199d1f00a4, type: 2}
+      objectReference: {fileID: 11400000, guid: 6ad6ab4fba98f1b429088f342080f904, type: 2}
     - target: {fileID: 6561921077846934152, guid: fd64cc1dbfb96aa47822d801d4b5c530, type: 3}
       propertyPath: enemiesData.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 52bb94c2c8f78ec4bb5227f666671302, type: 2}
+      objectReference: {fileID: 11400000, guid: 61bfd1b8a08771c428638a199d1f00a4, type: 2}
     - target: {fileID: 6561921077846934152, guid: fd64cc1dbfb96aa47822d801d4b5c530, type: 3}
       propertyPath: enemiesData.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 30a0d2f9568e6094ba9baf87421c7a29, type: 2}
+      objectReference: {fileID: 11400000, guid: 52bb94c2c8f78ec4bb5227f666671302, type: 2}
     - target: {fileID: 6561921077846934152, guid: fd64cc1dbfb96aa47822d801d4b5c530, type: 3}
       propertyPath: enemiesData.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 74ce73d4b340f0f45b5892af5956c0c8, type: 2}
+      objectReference: {fileID: 11400000, guid: 30a0d2f9568e6094ba9baf87421c7a29, type: 2}
     - target: {fileID: 6561921077846934152, guid: fd64cc1dbfb96aa47822d801d4b5c530, type: 3}
       propertyPath: enemiesData.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 19351ca71cee8164ba6608784171345f, type: 2}
+      objectReference: {fileID: 11400000, guid: 74ce73d4b340f0f45b5892af5956c0c8, type: 2}
     - target: {fileID: 6561921077846934152, guid: fd64cc1dbfb96aa47822d801d4b5c530, type: 3}
       propertyPath: enemiesData.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: 95e22d1b0753e4e449718f65b60bae03, type: 2}
+      objectReference: {fileID: 11400000, guid: 19351ca71cee8164ba6608784171345f, type: 2}
     - target: {fileID: 6561921077846934152, guid: fd64cc1dbfb96aa47822d801d4b5c530, type: 3}
       propertyPath: enemiesData.Array.data[8]
       value: 
-      objectReference: {fileID: 11400000, guid: 7750cd59c3e0ff443a9c13590fc47b9a, type: 2}
+      objectReference: {fileID: 11400000, guid: 95e22d1b0753e4e449718f65b60bae03, type: 2}
     - target: {fileID: 6561921077846934152, guid: fd64cc1dbfb96aa47822d801d4b5c530, type: 3}
       propertyPath: enemiesData.Array.data[9]
       value: 
-      objectReference: {fileID: 11400000, guid: d22089ca75f201b4aa5fcb62be62633e, type: 2}
+      objectReference: {fileID: 11400000, guid: 7750cd59c3e0ff443a9c13590fc47b9a, type: 2}
     - target: {fileID: 6561921077846934154, guid: fd64cc1dbfb96aa47822d801d4b5c530, type: 3}
       propertyPath: m_Name
       value: EnemyManager
