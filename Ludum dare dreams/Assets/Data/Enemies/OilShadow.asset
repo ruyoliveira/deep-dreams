@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: 
   cards:
   - {fileID: 11400000, guid: e0e939dded90b0948a15da3daafc5c45, type: 2}
-  - {fileID: 11400000, guid: e0e939dded90b0948a15da3daafc5c45, type: 2}
+  - {fileID: 11400000, guid: 0946d5bb9dd88ee4abfbab9bd36b0c05, type: 2}
   - {fileID: 11400000, guid: e0e939dded90b0948a15da3daafc5c45, type: 2}
   graphic: {fileID: 21300000, guid: bb51457202b58ac4997f98b95538fbd2, type: 3}
   description: the shadow fish that expels oil.

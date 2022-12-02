@@ -17,5 +17,5 @@ MonoBehaviour:
   graphic: {fileID: 21300000, guid: 7f5395c97b986da4b813f86d9b29ec79, type: 3}
   cost: 1
   value: 1
-  description: the fruit of sin.
+  description: The fruit of sin.
   rarity: 0

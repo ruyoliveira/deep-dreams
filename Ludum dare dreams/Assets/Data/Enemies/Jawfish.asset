@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   cards:
+  - {fileID: 11400000, guid: 0946d5bb9dd88ee4abfbab9bd36b0c05, type: 2}
   - {fileID: 11400000, guid: e0e939dded90b0948a15da3daafc5c45, type: 2}
   - {fileID: 11400000, guid: e0e939dded90b0948a15da3daafc5c45, type: 2}
   - {fileID: 11400000, guid: 6750b05217c8ec74e9c1b581cd00433a, type: 2}

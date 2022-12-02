@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     
     public void Start()
     {
+        hp = maxHP;
         // Refresh GUI
         RefreshGUI();
     }
@@ -37,7 +38,7 @@ public class Player : MonoBehaviour
     public void AddDamage(int value)
     {
         // Apply value to hp
-        hp += value;
+        hp = Mathf.Clamp(hp + value, 0, maxHP);
         // Refresh information shown on GUI
         RefreshGUI();
     }
